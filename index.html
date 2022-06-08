@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Знайомство з JS</title>
+    <script type="text/javascript">
+    	var photosCount = 4; //stvorenya zminnou, yaka vkazye kilkist failiv v photo 
+    	var currentPhotoIndex = 1; //zminna nomery faily yakiy vidobrazaetsa 
+    	function showNextPhoto() { //fynkcia yaka zminue foto 
+    		currentPhotoIndex++; //zbilshenya znachenya zminnoy 
+    		if (currentPhotoIndex > photosCount) currentPhotoIndex = 1;//yaksho rezyltat bilshiy za kilkist kartinok, to vstanovlyetsa "currentPhotoIndex" znachenya 1
+
+    		var	elem = document.getElementById("currentPhoto"); //shykae v html file kartinky z id
+    		elem.src = "photo" + currentPhotoIndex + ".jpg"; // zminye kartinky shlahom sminy atribyta
+    	}
+
+    	function addNextPhoto() {
+    		var newImage = document.createElement("img"); //stvorenya novoi zminnoy 
+
+    		currentPhotoIndex++;//
+    		if(currentPhotoIndex > photosCount) currentPhotoIndex = 1;
+    		newImage.src = "photo" + currentPhotoIndex + ".jpg" ;//algoritm analogichnyi poperednomy
+    		
+
+
+    		var	containerElem = document.getElementById("gallery");// otymannya za id isnyyochogo elementa
+    		containerElem.appendChild(newImage);//dodavanya novogo elementa
+
+    	}
+    </script>
+</head>
+<body>
+	<div id="gallery">
+		<img id="currentPhoto" src="photo1.jpg" />
+	</div>
+	<button onclick="showNextPhoto()">next</button>
+	<button onclick="addNextPhoto()">add</button>
+</body>
+</html>
